@@ -1,0 +1,20 @@
+{% extends 'schedule_wagtail/base.html' %}
+{% load i18n %}
+{%load static%}
+{% block head_title %}Calendar: {{ object.name }}{% endblock %}
+{% block tab_id %}id='home_tab'{% endblock %}
+{% block extra_head %}
+    {% include "schedule_wagtail/fullcalendar_script.html" %}
+{% endblock %}
+{{ calendar_slug }}
+{% block body %}
+    <a class="btn btn-primary gradient" href="{%   url 'calendar_create_event' calendar_slug %}">
+        <span class='glyphicon glyphicon-plus'></span>
+        {% trans "Add New Session" %}
+    </a>
+    <br>
+    <br>
+    <div id='calendar'></div>
+
+    {% include "schedule_wagtail/fullcalendar_modal.html" %}
+{% endblock %}
