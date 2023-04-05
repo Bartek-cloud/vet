@@ -16,3 +16,13 @@ try:
     from .local import *  # noqa
 except ImportError:
     pass
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vet',
+        'USER': 'p1321_gsthr',
+        'PASSWORD': 'GZTeeHuur1901',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    },
+}

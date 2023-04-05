@@ -1,11 +1,13 @@
+from coderedcms.blocks import HeroBlock, GridBlock, CardGridBlock, CardBlock
+from coderedcms.blocks import CONTENT_STREAMBLOCKS
 from .block import *
 
 CALENDAR_STREAMBLOCKS = [
-    ('Calendar', BuyCalendarandHour()),
+    ('CalendarBuy', BuyCalendarandHour()),
+    ('CalendarView', ViewCalendarandHour()),
 ]
 
 # this defines final set of content blocks in the entire project!
-# when adding new cjkcms-compatible apps, you can add their content blocks here
 CONTENT_STREAMBLOCKS = \
     CONTENT_STREAMBLOCKS \
     + CALENDAR_STREAMBLOCKS \

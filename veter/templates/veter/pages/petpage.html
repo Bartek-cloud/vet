@@ -1,0 +1,46 @@
+{% extends "coderedcms/pages/web_page.html" %}
+{% load static wagtailcore_tags wagtailimages_tags%}
+{% block custom_assets %}
+{% endblock %}
+{% block content_body %}
+<!--========================= about-country+smoking start========================= -->
+<section id="about">
+    <div class="about-section gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-img-wrapper">
+                        <div class="position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+                            <img src="{% static country_photo %}" alt="About" class="about-img">
+                            <div class="about-experience">
+                                <h3>
+                                     {{ pet.name }}
+                                  {{ pet.Species }}
+                                  {{ pet.Age }}
+                                  {{ pet.Isfemale }}
+                                  {{ pet.Client }}
+                                  {% for Visit in pet.Visits.values %}
+                                     {{ Visit.text }}
+                                    {% endfor %}
+                                    {% for Result in pet.Result.values %}
+                                     {{ Result.type }}
+                                    {% endfor %}
+                                      {% for Result in pet.Tratment.values %}
+                                     {{ Result.text }}
+                                    {% endfor %}
+                                  <a href = "{%  url 'wagtailadmin_home' %}veter/pet/edit/{{ pet.id }}/"target = "_blank" > <img src="{% static 'icons8-edit-24.png' %}" > </a>
+
+
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

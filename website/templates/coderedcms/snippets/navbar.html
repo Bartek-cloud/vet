@@ -53,11 +53,7 @@
       {% endif %}
       <div class="ms-auto">
               {% if request.user.is_authenticated %}
-                  {% if request.user.groups != None %}
-                    {{ user.groups.all.0 }}
-
-                  {% endif %}
-                  Hello aa{{ request.user.username }},
+                  Hello {{ request.user.username }},
                   <a href="{% url 'account_logout' %}">Logout?</a>
               {% else %}
                   Hi guest!

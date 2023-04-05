@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "wagtail.contrib.settings",
     "wagtail.contrib.modeladmin",
     "wagtail.contrib.table_block",
+    "wagtail.contrib.routable_page",
     "wagtail.admin",
     #my
     "veter",
