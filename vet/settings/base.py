@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "wagtailcache",
     "wagtailseo",
 'schedule',
-
+'widget_tweaks',
     # Wagtail
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

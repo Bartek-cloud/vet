@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser, User
 from django.db import models
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
+from schedule.models import Event
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from wagtail.contrib.modeladmin.options import ModelAdminGroup, modeladmin_register, ModelAdmin
 from wagtail.models import PreviewableMixin, Orderable, Page
@@ -11,10 +12,11 @@ from wagtail.snippets.models import register_snippet
 class Pet(ClusterableModel):
     name = models.CharField(max_length=255)
     species = models.CharField(max_length=255)
-    age = models.DecimalField(decimal_places=2,max_digits=6,null=True, blank=True)
+    age = models.DecimalField(decimal_places=2, max_digits=6, null=True, blank=True)
     isfemale = models.BooleanField(default=True)
-    Client = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=True, limit_choices_to={'groups__name': 'Clients'})
-    description = models.CharField(max_length=1000,null=True, blank=True)
+    Client = models.ForeignKey(to=User, on_delete=models.CASCADE,
+                               limit_choices_to={'groups__name': 'Clients'})
+    description = models.CharField(max_length=1000, null=True, blank=True)
     panels = [
         FieldPanel('name'),
         FieldPanel('species'),
@@ -43,22 +45,27 @@ class Result(Orderable):
         return self.text
 
 
-class Visit(Orderable):#,event
-    type = models.CharField(null=True, blank=True,max_length=255)
-    description = models.CharField(max_length=255)
+class Visit(Orderable, Event):
     cost = models.DecimalField(decimal_places=2, max_digits=10)
-    date = models.DateTimeField()
-    vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, blank=True)
-    animal = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Visit")
+    vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
+                            limit_choices_to={'groups__name': 'Clients'}, related_name="vet")
+    animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Visit")
     panels = [
-        FieldPanel('type'),
+        FieldPanel('start'),
+        FieldPanel('end'),
+        FieldPanel('title'),
         FieldPanel('description'),
-        FieldPanel('cost'),
-        FieldPanel('date'),
+        FieldPanel('creator'),
+        FieldPanel('created_on'),
+        FieldPanel('updated_on'),
+        FieldPanel('rule'),
+        FieldPanel('end_recurring_period'),
+        FieldPanel('calendar'),
+        FieldPanel('color_event'),
+        FieldPanel('vet'),
+        FieldPanel('animal'),
+        FieldPanel('Client'),
     ]
-
-    def __str__(self):
-        return self.type
 
 
 class Treatment(models.Model):
@@ -113,9 +120,6 @@ class DataBaseAdmin(ModelAdminGroup):
 
 
 modeladmin_register(DataBaseAdmin)
-
-
-
 
 # def clients(self):
 #   Clients.objects.filter(self)
