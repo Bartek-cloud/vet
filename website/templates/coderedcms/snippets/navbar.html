@@ -24,19 +24,19 @@
         {% include_block item with liclass="nav-item" aclass="nav-link" ga_event_category="Navbar" %}
         {% endfor %}
         {% if user|has_group:"Clients" %}
-        <li class="nav-item">
-          <a class="nav-link" href="/wizyta/">wizyta</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/wizyta/">wizyta</a>
+          </li>
         {% endif %}
-              {% if user|has_group:"Vet" %}
-        <li class="nav-item">
-          <a class="nav-link" href="/weterynarz/">Weterynarz</a>
-        </li>
+        {% if user|has_group:"Vet" %}
+          <li class="nav-item">
+            <a class="nav-link" href="/weterynarz/">Weterynarz</a>
+          </li>
         {% endif %}
         {% if user|has_group:"Recepjnist" %}
-        <li class="nav-item">
-          <a class="nav-link" href="/recepcjonista/">recepcjonista</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/recepcjonista/">recepcjonista</a>
+          </li>
         {% endif %}
       </ul>
       {% endfor %}

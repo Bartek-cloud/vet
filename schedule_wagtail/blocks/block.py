@@ -11,15 +11,17 @@ class BuyCalendarandHour(blocks.StructBlock):
         required=True,
         label='Countries and Regions',
     )
+
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
         context["calendar_slug"] = value['calendar'][0].value.slug#self.kwargs.get("calendar_slug")
         return context
+
     class Meta:
         template = "schedule_wagtail/fullcalendar.html"
-        label = 'Calendarssss'
+        label = 'Calendar'
 
-class BuyCalendarandHour(blocks.StructBlock):
+class BuyCalendarandHour2(blocks.StructBlock):
     calendar = blocks.StreamBlock(
         [
             ('calendar', SnippetChooserBlock('schedule_wagtail.CalendarSnippet')),
