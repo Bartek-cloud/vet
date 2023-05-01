@@ -1,7 +1,10 @@
-{% load wagtailcore_tags wagtailsettings_tags wagtailimages_tags coderedcms_tags i18n %}
+{% load wagtailcore_tags wagtailsettings_tags wagtailimages_tags coderedcms_tags i18n static %}
 {% load tags %}
+
 {% wagtail_site as site %}
 <nav class="navbar {% get_navbar_css %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
+
   <div class="container{% if settings.coderedcms.LayoutSettings.navbar_content_fluid %}-fluid{% endif %}">
     <a class="navbar-brand" href="/">
       {% if settings.coderedcms.LayoutSettings.logo %}
@@ -25,7 +28,7 @@
         {% endfor %}
         {% if user|has_group:"Clients" %}
           <li class="nav-item">
-            <a class="nav-link" href="/wizyta/">wizyta</a>
+            <a class="nav-link" href="/wizyta/">Wizyta</a>
           </li>
         {% endif %}
         {% if user|has_group:"Vet" %}
@@ -35,7 +38,7 @@
         {% endif %}
         {% if user|has_group:"Recepjnist" %}
           <li class="nav-item">
-            <a class="nav-link" href="/recepcjonista/">recepcjonista</a>
+            <a class="nav-link" href="/recepcjonista/">Recepcjonista</a>
           </li>
         {% endif %}
       </ul>

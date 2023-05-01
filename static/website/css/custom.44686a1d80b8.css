@@ -1,0 +1,173 @@
+/* Add your custom styles here */
+
+
+/* Adds a bit of spacing to "Responsive Grid Row" blocks. */
+.crx-grid {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.crx-grid .crx-grid {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+/* Resetowanie stylów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ustawienia ogólne strony */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #8BC34A; /* zielone tło */
+  line-height: 1.5;
+}
+
+/* Nagłówek strony */
+header {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* Logo */
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #555;
+}
+
+/* Menu nawigacyjne */
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+/* Slogan strony */
+.slogan {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.slogan h1 {
+  font-size: 3em;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.slogan p {
+  font-size: 1.2em;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Sekcja o nas */
+.about {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.about h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Sekcja usług */
+.services {
+  background-color: #f7f7f7;
+  padding: 60px 20px;
+}
+
+.services h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.services ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.services li {
+  margin: 0 30px;
+  text-align: center;
+}
+
+.services img {
+  max-width: 100%;
+}
+
+.services h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.services p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Sekcja kontakt */
+.contact {
+  background-color: #fff;
+  padding: 60px 20px;
+}

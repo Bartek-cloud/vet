@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     "wagtailseo",
 'schedule',
 'widget_tweaks',
+'material',
+'datetimewidget',
+    'tempus_dominus',
     # Wagtail
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

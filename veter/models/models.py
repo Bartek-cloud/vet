@@ -55,16 +55,15 @@ class Visit(Orderable, Event):
         FieldPanel('end'),
         FieldPanel('title'),
         FieldPanel('description'),
+        FieldPanel('cost'),
         FieldPanel('creator'),
-        FieldPanel('created_on'),
-        FieldPanel('updated_on'),
         FieldPanel('rule'),
         FieldPanel('end_recurring_period'),
         FieldPanel('calendar'),
         FieldPanel('color_event'),
         FieldPanel('vet'),
         FieldPanel('animal'),
-        FieldPanel('Client'),
+        #FieldPanel('Client'),
     ]
 
 

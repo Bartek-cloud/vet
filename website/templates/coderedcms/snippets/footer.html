@@ -1,6 +1,7 @@
-{% load wagtailcore_tags coderedcms_tags %}
+{% load wagtailcore_tags coderedcms_tags static %}
 {% if settings.coderedcms.LayoutSettings.site_footer %}
 <footer>
+  <link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
   {% get_footers as footers %}
   {% for footer in footers %}
   <div {% if footer.custom_id %}id="{{footer.custom_id}}"{% endif %} {% if footer.custom_css_class %}class="{{footer.custom_css_class}}"{% endif %}>

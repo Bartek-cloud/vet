@@ -1,0 +1,31 @@
+{% load i18n static %}
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+
+{# Include Bootstrap 4 and jQuery #}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+
+{# Django Tempus Do
+
+
+<script src="{% static 'admin/js/core.js' %}"></script>
+<script src="{% url 'admin:jsi18n' %}"></script>  {# see note below #}
+{{ form.media }}  {# this adds 'calendar.js' and 'DateTimeShortcuts.js' #}
+
+<form class="container" action="" method="POST">
+  {% csrf_token %}
+  {% for field in form %}
+    <div class="form-group{% if field.errors %} has-error{% endif %}">
+      <label class="control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {{ field }}
+      {% for error in field.errors %}
+        <span class="help-block">{{ error }}</span>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary">Zapisz</button>
+</form>
+

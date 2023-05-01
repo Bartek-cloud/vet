@@ -9,4 +9,163 @@
 .crx-grid .crx-grid {
   padding-top: 0;
   padding-bottom: 0;
+}/* Główny kontener strony */
+/* Główny kontener strony */
+body {
+  font-family: Arial, sans-serif;
+   background-color: #6a936a;/* kolor tła */
+
+  color: #333; /* kolor tekstu */
 }
+.navbar {
+   background-color: #77dd77;
+}
+/* Nagłówek strony */
+header {
+  background-color: #fff; /* kolor tła nagłówka */
+  padding: 20px;
+}
+
+/* Logo */
+header img {
+  max-width: 200px;
+}
+
+/* Menu nawigacyjne */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333; /* kolor linków */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Sekcja nagłówkowa */
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff; /* kolor tekstu na tle */
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Sekcja usług */
+.services {
+  padding: 50px;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.services p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.services ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.services li {
+  margin-bottom: 10px;
+}
+
+.services li:before {
+  content: '•';
+  margin-right: 10px;
+  color: #52c41a; /* kolor ikony */
+}
+
+/* Sekcja o nas */
+.about {
+  padding: 50px;
+}
+
+.about h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Sekcja cennik */
+.pricing {
+  padding: 50px;
+}
+
+.pricing h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.pricing p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.pricing table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.pricing th, .pricing td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+.pricing th {
+  background-color: #52c41a; /* kolor nagłówka tabeli */
+  color: #fff;
+}
+
+/* Sekcja kontakt */
+.contact {
+  padding: 50px;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
