@@ -19,8 +19,9 @@ from schedule_wagtail.views import (
     OccurrenceView,
     api_move_or_resize_by_code,
     api_occurrences,
-    api_select_create,
+    api_select_create, RecepCreateEventView,
 )
+from veter.views import vetCreateEventView, vetRecepCreateEventView
 
 urlpatterns = [
     path('calendar', ListView.as_view(model=Calendar), name='calendar_list'),
@@ -34,8 +35,8 @@ urlpatterns = [
     path('calendar/<slug:calendar_slug>', CalendarView.as_view(), name='calendar_home'),
     path('fullcalendar/<slug:calendar_slug>', FullCalendarView.as_view(), name='fullcalendar'),
     # Event Urls
-    path('event/create/<slug:calendar_slug>', CreateEventView.as_view(), name='calendar_create_event'),
-
+    path('event/create/<slug:calendar_slug>', vetCreateEventView.as_view(), name='calendar_create_event'),
+    path('event/createrecepcjonist/<slug:calendar_slug>', vetRecepCreateEventView.as_view(), name='rec_calendar_create_event'),
     path('event/edit/<slug:calendar_slug>/<int:event_id>', EditEventView.as_view(), name='edit_event'),
     path('event/<int:event_id>', EventView.as_view(), name='event'),
     path('event/delete/<int:event_id>', DeleteEventView.as_view(), name='delete_event'),

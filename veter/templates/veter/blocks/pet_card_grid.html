@@ -1,0 +1,21 @@
+<link rel='stylesheet' type='text/css' href='/cardgrid.css' />
+<h2 class="text-center">Zwierzęta</h2>
+<div class="card-deck">
+  <div class="row">
+
+    {% for pet in Pets %}
+      <div class="col-lg-4 col-md-6 col-sm-12 m-1">
+        <div class="card-body">
+          <a href="{% url 'wagtailadmin_home' %}veter/pet/edit/{{ pet.id }}/" class="btn btn-primary">
+            <h5 class="card-title">Imię: {{ pet.name }}</h5>
+            <p class="card-text">Gatunek: {{ pet.species }}</p>
+            <p class="card-text">Wiek: {{ pet.age }}</p>
+            <p class="card-text">Samica: {{ pet.isfemale }}</p>
+            <p class="card-text">Właścicel: {{ pet.Client }}</p>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+

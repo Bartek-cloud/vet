@@ -14,9 +14,6 @@
                             <img src="{% static country_photo %}" alt="About" class="about-img">
                             <div class="about-experience">
                                 <h3>
-                                    {% for pet in pets %}
-                                     {{ pet.name }} <a href = "{%  url 'wagtailadmin_home' %}veter/pet/edit/{{ pet.id }}/"target = "_blank" > <img src="{% static 'icons8-edit-24.png' %}" > </a>
-                                    {% endfor %}
 
                                 </h3>
                             </div>

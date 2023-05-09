@@ -21,7 +21,7 @@ class BuyCalendarandHour(blocks.StructBlock):
         template = "schedule_wagtail/fullcalendar.html"
         label = 'Calendar'
 
-class BuyCalendarandHour2(blocks.StructBlock):
+class recBuyCalendarandHour(blocks.StructBlock):
     calendar = blocks.StreamBlock(
         [
             ('calendar', SnippetChooserBlock('schedule_wagtail.CalendarSnippet')),
@@ -34,8 +34,8 @@ class BuyCalendarandHour2(blocks.StructBlock):
         context["calendar_slug"] = value['calendar'][0].value.slug#self.kwargs.get("calendar_slug")
         return context
     class Meta:
-        template = "schedule_wagtail/fullcalendar.html"
-        label = 'Calendarsvisit'
+        template = "schedule_wagtail/fullcalendarrecp.html"
+        label = 'recCalendarsvisit'
 
 class ViewCalendarandHour(blocks.StructBlock):
     calendar = blocks.StreamBlock(

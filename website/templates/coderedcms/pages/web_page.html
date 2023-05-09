@@ -6,15 +6,15 @@
 {% image page.cover_image fill-1600x900 format-webp as cover_image %}
 <div class="hero-bg mb-5" style="background-image:url({{cover_image.url}});">
   <div class="hero-fg">
-    <div class="container">
+    <div class="container my-5">
 
-      <h1>{{page.title}} bbb</h1>
+      <h1 class="container">{{page.title}} bbb</h1>
     </div>
   </div>
 </div>
 {% else %}
 <div class="container my-5">
-  <h1>{{page.title}}</h1>
+  <h1 class="text-center">{{page.title}}</h1>
 </div>
 {% endif %}
 {% endblock %}

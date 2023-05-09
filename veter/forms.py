@@ -25,8 +25,8 @@ class EventFormWag(forms.ModelForm):
     """
 
     class Meta:
-        model = EventSnippet
-        fields = ['title', 'start', 'end', 'description']
+        model = Visit
+        fields = ['title', 'start', 'end', 'description','cost','vet','animal']
         widgets = {
             #'title': TextField(),
             'start': DateTimePicker(
@@ -36,16 +36,23 @@ class EventFormWag(forms.ModelForm):
             #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
             #'description': TextField()
         }
+    #     cost = models.DecimalField(decimal_places=2, max_digits=10)
+    # vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
+    #                         limit_choices_to={'groups__name': 'Clients'}, related_name="vet")
+    # animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Visit")
 
     layout = Layout(
         Row('title'),
         Row('start', 'end'),
         Row('description'),
+        Row('cost'),
+        Row('vet'),
+        Row('animal'),
         #SubmitButton('Zapisz')
     )
 
     fieldsets = (
-        Fieldset('Dodaj nowe wydarzenie', 'title', 'start', 'end', 'description'),
+        Fieldset('Dodaj nowe wydarzenie', 'title', 'start', 'end', 'description','cost','vet','animal'),
     )
 
     def __init__(self, *args, **kwargs):
@@ -70,8 +77,8 @@ class EventFormWag(forms.ModelForm):
 
 class RecEventFormWag(forms.ModelForm):
     class Meta:
-        model = EventSnippet
-        fields = ['creator','title', 'start', 'end', 'description']
+        model = Visit
+        fields = ['creator','title', 'start', 'end', 'description','cost','vet','animal']
         widgets = {
             #'title': TextField(),
             'start': DateTimePicker(
@@ -87,11 +94,13 @@ class RecEventFormWag(forms.ModelForm):
         Row('title'),
         Row('start', 'end'),
         Row('description'),
+        Row('cost'),
+        Row('vet'),
+        Row('animal'),
         #SubmitButton('Zapisz')
     )
-
     fieldsets = (
-        Fieldset('Dodaj nowe wydarzenie','creator', 'title', 'start', 'end', 'description'),
+        Fieldset('Dodaj nowe wydarzenie','creator', 'title', 'start', 'end', 'description','cost','vet','animal'),
     )
 # class EventFormVisit(EventForm):
 #     def __init__(self, *args, **kwargs):

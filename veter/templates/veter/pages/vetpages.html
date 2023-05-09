@@ -13,12 +13,6 @@
                     <div class="about-img-wrapper">
                         <div class="position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
                             <div class="about-experience">
-                                <h3>
-                                    {% for pet in pets %}
-                                     {{ pet.name }} <a href = "{%  url 'wagtailadmin_home' %}veter/pet/edit/{{ pet.id }}/"target = "_blank" > <img src="{% static 'icons8-edit-24.png' %}" > </a>
-                                    {% endfor %}
-
-                                </h3>
                             </div>
                         </div>
                     </div>
@@ -28,10 +22,6 @@
                         <div class="position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
                             <div class="about-experience">
                                 <h3>
-                                    {% for visit in visits %}
-                                     {{ visit.type }} <a href = "{%  url 'wagtailadmin_home' %}veter/visit/edit/{{ visit.id }}/"target = "_blank" > <img src="{% static 'icons8-edit-24.png' %}" > </a>
-                                      {{ visit.description }}
-                                    {% endfor %}
 
                                 </h3>
                             </div>

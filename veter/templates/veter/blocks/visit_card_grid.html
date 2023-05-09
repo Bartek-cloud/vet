@@ -1,0 +1,22 @@
+<link rel='stylesheet' type='text/css' href='/cardgrid.css' />
+ <h2 class="text-center">Wizyta</h1>
+<div class="card-deck">
+  <div class="row">
+    {% for visit in Visits %}
+      <div class="col-lg-4 col-md-6 col-sm-12 m-1">
+        <div class="card-body">
+          <a href="{% url 'wagtailadmin_home' %}veter/visit/edit/{{ visit.id }}/" class="btn btn-primary">
+            <h5 class="card-title">{{ visit.start }}</h5>
+            <p class="card-text">{{ visit.end }}</p>
+            <p class="card-text">{{ visit.title }}</p>
+            <p class="card-text">{{ visit.description }}</p>
+            <p class="card-text">{{ visit.cost }}</p>
+            <p class="card-text">{{ visit.animal }}</p>
+            <p class="card-text">{{ visit.vet }}</p>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+

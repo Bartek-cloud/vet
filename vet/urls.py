@@ -8,6 +8,7 @@ from coderedcms import admin_urls as crx_admin_urls
 from coderedcms import search_urls as crx_search_urls
 from coderedcms import urls as crx_urls
 from schedule_wagtail import urls as schedule_urls
+from veter import urls as veter_urls
 from wagtail import urls as wagtail_urls
 urlpatterns = [
     # Admin
@@ -23,6 +24,7 @@ urlpatterns = [
     path("", include('allauth.urls')),
     #url(r'', include(wagtail_urls)),
     path("", include(crx_urls)),
+    path("", include(schedule_urls)),
     path("", include(schedule_urls)),
     # Alternatively, if you want pages to be served from a subpath
     # of your site, rather than the site root:
