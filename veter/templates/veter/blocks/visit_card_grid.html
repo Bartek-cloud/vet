@@ -3,7 +3,7 @@
 <div class="card-deck">
   <div class="row">
     {% for visit in Visits %}
-      <div class="col-lg-4 col-md-6 col-sm-12 m-1">
+            <div class="col-lg-2 col-md-6 col-sm-12 m-1">
         <div class="card-body">
           <a href="{% url 'wagtailadmin_home' %}veter/visit/edit/{{ visit.id }}/" class="btn btn-primary">
             <h5 class="card-title">{{ visit.start }}</h5>

@@ -44,6 +44,7 @@
       </ul>
       {% endfor %}
       {% endif %}
+
       {% if settings.coderedcms.LayoutSettings.navbar_search %}
       <form class="d-flex ms-auto" role="search" action="{% url 'crx_search' %}" method="GET">
         {% load django_bootstrap5 %}
@@ -51,16 +52,18 @@
         {% for field in form %}
         {% bootstrap_field field show_label=False wrapper_class=None success_css_class=None server_side_validation=False %}
         {% endfor %}
+      <link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
         <button class="btn btn-outline-primary ms-2" type="submit">{% trans "Search" %}</button>
       </form>
       {% endif %}
+        <link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
       <div class="ms-auto">
               {% if request.user.is_authenticated %}
-                  Hello {{ request.user.username }},
-                  <a href="{% url 'account_logout' %}">Logout?</a>
+                  Witam {{ request.user.username }},
+                  <a href="{% url 'account_logout' %}">Wylogować?</a>
               {% else %}
-                  Hi guest!
-                  <a href="{% url 'account_login' %}">Login?</a>
+                  gość
+                  <a href="{% url 'account_login' %}">Zalogować?</a>
               {% endif %}
           </div>
     </ul>

@@ -5,10 +5,10 @@
   <div class="row">
 
     {% for client in Clients %}
-      <div class="col-lg-4 col-md-6 col-sm-12 m-1">
+            <div class="col-lg-2 col-md-6 col-sm-12 m-1">
         <div class="card-body">
           <a href="{% url 'wagtailadmin_home' %}veter/client/edit/{{ client.id }}/" class="btn btn-primary">
-            <h5 class="card-title">imię {{ client.username }}</h5>
+            <h5 class="card-title"> {{ client.username }}</h5>
 {#         {{ client.Pet}}#}
 {#            {% for pet in client.Pet %}#}
 {#            <p class="card-text">{{ pet }}</p>#}

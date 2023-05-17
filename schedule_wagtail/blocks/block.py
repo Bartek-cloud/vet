@@ -9,7 +9,6 @@ class BuyCalendarandHour(blocks.StructBlock):
             ('calendar', SnippetChooserBlock('schedule_wagtail.CalendarSnippet')),
         ],
         required=True,
-        label='Countries and Regions',
     )
 
     def get_context(self, value, parent_context=None):
@@ -27,7 +26,6 @@ class recBuyCalendarandHour(blocks.StructBlock):
             ('calendar', SnippetChooserBlock('schedule_wagtail.CalendarSnippet')),
         ],
         required=True,
-        label='Countries and Regions',
     )
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
