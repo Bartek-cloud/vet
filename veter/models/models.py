@@ -41,8 +41,8 @@ class Pet(ClusterableModel):
         verbose_name_plural = 'Zwierzęta'
 
 class Result(Orderable):
-    date = models.DateTimeField(null=True, blank=True)
-    text = models.CharField(max_length=255)
+    date = models.DateTimeField(null=True, blank=True,verbose_name = 'dane')
+    text = models.CharField(max_length=255,verbose_name = 'opis')
     pet = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Result")
     panels = [
         FieldPanel('date'),
@@ -87,8 +87,8 @@ class Visit(Orderable, Event):
         verbose_name_plural = 'Wizyty'
 
 class Treatment(models.Model):
-    date = models.DateTimeField(null=True, blank=True,verbose_name = 'data')
-    text = models.CharField(max_length=255,verbose_name = 'tekst')
+    date = models.DateTimeField(null=True, blank=True,verbose_name = 'dane')
+    text = models.CharField(max_length=255,verbose_name = 'opis')
     pet = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Treatment")
     panels = [
         FieldPanel('date'),
