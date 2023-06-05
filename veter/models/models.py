@@ -28,7 +28,8 @@ class Pet(ClusterableModel):
         FieldPanel('isfemale'),
         ], heading='podstawowe informacje'),
         InlinePanel("Result", label="Wynik"),
-        InlinePanel("Visit", label="Wizyta"),
+        InlinePanel("Pet", label="Wizyta"),
+       # InlinePanel("Visit"),#, label="Wizyta"),
         InlinePanel("Treatment", label="Kuracja"),
     ]
 
@@ -55,10 +56,10 @@ class Result(Orderable):
         verbose_name_plural = 'Wyniki'
 
 class Visit(Orderable, Event):
-    cost = models.DecimalField(decimal_places=2, max_digits=10,verbose_name = 'Koszt')
+  #  cost = models.DecimalField(decimal_places=2, max_digits=10,verbose_name = 'Koszt')
     vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
                             limit_choices_to={'groups__name': 'Vet'}, related_name="vet",verbose_name = 'Weterynarz')
-    animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Visit",verbose_name = 'Zwierze')
+    animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Pet")#,verbose_name = 'Zwierzę')#,limit_choices_to={'Client': 'id__creator'},)
     panels = [
         MultiFieldPanel([
         FieldPanel('start'),
@@ -69,7 +70,7 @@ class Visit(Orderable, Event):
         FieldPanel('description'),
         FieldPanel('vet'),
         FieldPanel('animal'),
-        FieldPanel('cost'),
+    #    FieldPanel('cost'),
         ]  , heading='opisy wizyty'),
         # FieldPanel('creator'),
         # MultiFieldPanel([
@@ -86,8 +87,8 @@ class Visit(Orderable, Event):
         verbose_name_plural = 'Wizyty'
 
 class Treatment(models.Model):
-    date = models.DateTimeField(null=True, blank=True)
-    text = models.CharField(max_length=255)
+    date = models.DateTimeField(null=True, blank=True,verbose_name = 'data')
+    text = models.CharField(max_length=255,verbose_name = 'tekst')
     pet = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Treatment")
     panels = [
         FieldPanel('date'),

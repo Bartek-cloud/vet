@@ -26,16 +26,16 @@ class EventFormWag(forms.ModelForm):
 
     class Meta:
         model = Visit
-        fields = ['title', 'start', 'end', 'description','cost','vet','animal']
-        widgets = {
-            #'title': TextField(),
-            'start': DateTimePicker(
-             # formatowanie daty i czasu wg. własnego uznania
-        ),
-            'end': DateTimePicker(),
-            #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
-            #'description': TextField()
-        }
+        fields = ['title', 'description','animal']
+        # widgets = {
+        #     #'title': TextField(),
+        #     'start': DateTimePicker(
+        #      # formatowanie daty i czasu wg. własnego uznania
+        # ),
+        #     'end': DateTimePicker(),
+        #     #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
+        #     #'description': TextField()
+     #   }
     #     cost = models.DecimalField(decimal_places=2, max_digits=10)
     # vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
     #                         limit_choices_to={'groups__name': 'Clients'}, related_name="vet")
@@ -43,10 +43,10 @@ class EventFormWag(forms.ModelForm):
 
     layout = Layout(
         Row('title'),
-        Row('start', 'end'),
+     #   Row('start', 'end'),
         Row('description'),
-        Row('cost'),
-        Row('vet'),
+     #   Row('cost'),
+     #   Row('vet'),
         Row('animal'),
         #SubmitButton('Zapisz')
     )
@@ -58,11 +58,15 @@ class EventFormWag(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(EventFormWag, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({
-            'placeholder': 'Tytuł wydarzenia'
+            'placeholder': 'Tytuł wizyty',
+            'class': 'form-control'
         })
         self.fields['description'].widget.attrs.update({
-            'placeholder': 'Opis wydarzenia'
+            'placeholder': 'Opis wizyty',
+            'class': 'form-control'
+
         })
+
 
     def clean(self):
         cleaned_data = super().clean()
@@ -78,7 +82,7 @@ class EventFormWag(forms.ModelForm):
 class RecEventFormWag(forms.ModelForm):
     class Meta:
         model = Visit
-        fields = ['creator','title', 'start', 'end', 'description','cost','vet','animal']
+        fields = ['creator','animal','vet','title', 'start', 'end', 'description']
         widgets = {
             #'title': TextField(),
             'start': DateTimePicker(
@@ -90,13 +94,14 @@ class RecEventFormWag(forms.ModelForm):
         }
 
     layout = Layout(
+        Row('vet'),
+        Row('animal'),
         Row('creator'),
         Row('title'),
         Row('start', 'end'),
         Row('description'),
-        Row('cost'),
-        Row('vet'),
-        Row('animal'),
+   #     Row('cost'),
+
         #SubmitButton('Zapisz')
     )
     fieldsets = (

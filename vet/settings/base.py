@@ -149,11 +149,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 # To add or change language of the project, modify the list below.
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "pl"
 
-LANGUAGES = [("en-us", _("English"))]
+LANGUAGES = [("pl", _("Polish"))]
 
-TIME_ZONE = "America/New_York"
+TIME_ZONE = "Poland"
 
 USE_I18N = True
 

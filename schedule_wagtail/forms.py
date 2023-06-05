@@ -18,7 +18,7 @@ from schedule.models import Event
 from material import Layout, Row, Fieldset
 #from material import TextField, DateTimePickerInput, SubmitButton
 
-
+#not working go veter
 class EventFormWag(forms.ModelForm):
     """
     Formularz do tworzenia nowego wydarzenia.
@@ -26,26 +26,28 @@ class EventFormWag(forms.ModelForm):
 
     class Meta:
         model = EventSnippet
-        fields = ['title', 'start', 'end', 'description']
-        widgets = {
-            #'title': TextField(),
-            'start': DateTimePicker(
-             # formatowanie daty i czasu wg. własnego uznania
-        ),
-            'end': DateTimePicker(),
-            #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
-            #'description': TextField()
-        }
+       # fields = ['title', 'start', 'end', 'description']
+        fields = ['title', 'description']
+        # widgets = {
+        #     #'title': TextField(),
+        #     'start': DateTimePicker(
+        #      # formatowanie daty i czasu wg. własnego uznania
+        # ),
+        #     'end': DateTimePicker(),
+        #     #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
+        #     #'description': TextField()
+        # }
 
     layout = Layout(
         Row('title'),
-        Row('start', 'end'),
+       # Row('start', 'end'),
         Row('description'),
         #SubmitButton('Zapisz')
     )
 
     fieldsets = (
-        Fieldset('Dodaj nowe wydarzenie', 'title', 'start', 'end', 'description'),
+        Fieldset('Dodaj nowe wydarzenie', 'title', 'description'),
+        #Fieldset('Dodaj nowe wydarzenie', 'title', 'start', 'end', 'description'),
     )
 
     def __init__(self, *args, **kwargs):
@@ -61,12 +63,12 @@ class EventFormWag(forms.ModelForm):
         cleaned_data = super().clean()
 
         # Walidacja pól formularza
-        start = cleaned_data.get("start")
-        end = cleaned_data.get("end")
-        if start > end:
-            self.add_error('start', 'data początkowa jest wcześniejsza od końcowej')
-        if start + datetime.timedelta(minutes=120) < end:
-            self.add_error('end', 'za długi czas trwania')
+        # start = cleaned_data.get("start")
+        # end = cleaned_data.get("end")
+        # if start > end:
+        #     self.add_error('start', 'data początkowa jest wcześniejsza od końcowej')
+        # if start + datetime.timedelta(minutes=120) < end:
+        #     self.add_error('end', 'za długi czas trwania')
 
 class RecEventFormWag(forms.ModelForm):
     class Meta:

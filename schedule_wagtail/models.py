@@ -20,7 +20,7 @@ from veter.models import Pet
 
 @register_snippet
 class Visit(Orderable, Event):
-    cost = models.DecimalField(decimal_places=2, max_digits=10)
+ #   cost = models.DecimalField(decimal_places=2, max_digits=10)
     vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
                             limit_choices_to={'groups__name': 'Clients'}, related_name="vet")
     animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Visit")
