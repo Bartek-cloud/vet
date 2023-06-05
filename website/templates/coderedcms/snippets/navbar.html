@@ -26,17 +26,17 @@
         {% for item in navbar.menu_items %}
         {% include_block item with liclass="nav-item" aclass="nav-link" ga_event_category="Navbar" %}
         {% endfor %}
-        {% if user|has_group:"Clients" %}
+        {% if user|has_group:"Klienci" %}
           <li class="nav-item">
             <a class="nav-link" href="/wizyta/">Wizyta</a>
           </li>
         {% endif %}
-        {% if user|has_group:"Vet" %}
+        {% if user|has_group:"Weterynarze" %}
           <li class="nav-item">
             <a class="nav-link" href="/weterynarz/">Weterynarz</a>
           </li>
         {% endif %}
-        {% if user|has_group:"Recepjnist" %}
+        {% if user|has_group:"Recepcjonisci" %}
           <li class="nav-item">
             <a class="nav-link" href="/recepcjonista/">Recepcjonista</a>
           </li>

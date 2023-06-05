@@ -126,7 +126,7 @@ class UserAdmin(ModelAdmin):
 
 
 class DataBaseAdmin(ModelAdminGroup):
-    menu_label = "Database"
+    menu_label = "Baza danych"
     menu_icon = "fa-database"
     menu_order = 200
     items = (
