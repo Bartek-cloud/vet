@@ -25,7 +25,7 @@ urlpatterns = [
     #url(r'', include(wagtail_urls)),
     path("", include(crx_urls)),
     path("", include(schedule_urls)),
-    path("", include(schedule_urls)),
+    path("", include(veter_urls)),
     # Alternatively, if you want pages to be served from a subpath
     # of your site, rather than the site root:
     #    path("pages/", include(crx_urls)),

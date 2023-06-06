@@ -1,12 +1,13 @@
 {% load i18n %}
 {%load static%}
 <link rel='stylesheet' type='text/css' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css' />
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js'></script>
+<script type='text/javascript' src={% static "moment.js" %}></script>
 <script type='text/javascript' src="{% static "timepicker/bootstrap-datetimepicker.js" %}"></script>
-<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.js'></script>
-<script type='text/javascript'>
-$(document).ready(function() {
+<script type='text/javascript' src="{% static "fullcalendar231.js" %}"></script>
 
+<script type='text/javascript'>
+
+$(document).ready(function() {
     function getEventViewURL(event){
         if (event.existed){
             if("{{ request.get_full_path }}".indexOf("/admin") != 0){
@@ -104,6 +105,7 @@ $(document).ready(function() {
     var y = date.getFullYear();
 
     $('#calendar').fullCalendar({
+        locale: 'pl',
         header: {
             left: 'prev,next today',
             center: 'title',

@@ -10,8 +10,10 @@ from django.forms import Form, ModelForm, DateField, widgets, SplitDateTimeWidge
 from django import forms
 from schedule.widgets import ColorInput
 #from datetimewidget.widgets import DateTimeWidget
+from wagtail.users.forms import User
+
 from schedule_wagtail.models import EventSnippet
-from veter.models import Visit
+from veter.models import Visit, Pet
 from tempus_dominus.widgets import DatePicker, TimePicker, DateTimePicker
 from django import forms
 from schedule.models import Event
@@ -23,24 +25,9 @@ class EventFormWag(forms.ModelForm):
     """
     Formularz do tworzenia nowego wydarzenia.
     """
-
     class Meta:
         model = Visit
         fields = ['title', 'description','animal']
-        # widgets = {
-        #     #'title': TextField(),
-        #     'start': DateTimePicker(
-        #      # formatowanie daty i czasu wg. własnego uznania
-        # ),
-        #     'end': DateTimePicker(),
-        #     #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
-        #     #'description': TextField()
-     #   }
-    #     cost = models.DecimalField(decimal_places=2, max_digits=10)
-    # vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
-    #                         limit_choices_to={'groups__name': 'Clients'}, related_name="vet")
-    # animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Visit")
-
     layout = Layout(
         Row('title'),
      #   Row('start', 'end'),
@@ -64,7 +51,9 @@ class EventFormWag(forms.ModelForm):
         self.fields['description'].widget.attrs.update({
             'placeholder': 'Opis wizyty',
             'class': 'form-control'
-
+        })
+        self.fields['animal'].widget.attrs.update({
+            'class': 'form-select'
         })
 
 
@@ -80,6 +69,7 @@ class EventFormWag(forms.ModelForm):
             self.add_error('end', 'za długi czas trwania')
 
 class RecEventFormWag(forms.ModelForm):
+
     class Meta:
         model = Visit
         fields = ['creator','animal','vet','title', 'start', 'end', 'description']
@@ -107,21 +97,43 @@ class RecEventFormWag(forms.ModelForm):
     fieldsets = (
         Fieldset('Dodaj nowe wydarzenie','creator', 'title', 'start', 'end', 'description','cost','vet','animal'),
     )
-# class EventFormVisit(EventForm):
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#
-#     end_recurring_period = forms.DateTimeField(
-#         label=_("End recurring period"),
-#         help_text=_("This date is ignored for one time only events."),
-#         required=False,
-#     )
-#
-#     class Meta:
-#         model = Visit
-#         exclude = ("creator", "created_on", "calendar")
-#
+class PetForm(forms.ModelForm):
+    class Meta:
+        model = Pet
+        fields = ['name','species','age','isfemale', 'Client']
 
+
+    layout = Layout(
+        Row('name'),
+        Row('species'),
+        Row('age'),
+        Row('isfemale'),
+        Row('Client'),
+
+        #SubmitButton('Zapisz')
+    )
+    fieldsets = (
+        Fieldset('name','species', 'age', 'isfemale', 'Client'),
+    )
+class ClientForm(forms.ModelForm):
+    class Meta:
+        model = User
+        #fields = ['','','','', '']
+        exclude=[]
+
+
+    # layout = Layout(
+    #     Row('name'),
+    #     Row('species'),
+    #     Row('age'),
+    #     Row('isfemale'),
+    #     Row('Client'),
+    #
+    #     #SubmitButton('Zapisz')
+    # )
+    # fieldsets = (
+    #     Fieldset('name','species', 'age', 'isfemale', 'Client'),
+    # )
 class OccurrenceForm(SpanForm):
     class Meta:
         model = Occurrence

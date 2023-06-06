@@ -1102,15 +1102,12 @@
   $.fn.datetimepicker.Constructor = DateTimePicker;
   var dpgId = 0;
   var dates = $.fn.datetimepicker.dates = {
-    en: {
-      days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-        "Friday", "Saturday", "Sunday"],
-      daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-      daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-      months: ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"],
-      monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
-        "Aug", "Sep", "Oct", "Nov", "Dec"]
+        en: {
+      days: ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"],
+      daysShort: ["nd", "pn", "wt", "śr", "cz", "pt", "sb", "nd"],
+      daysMin: ["N", "P", "W", "Ś", "C", "P", "S", "N"],
+      months: ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"],
+      monthsShort: ["sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"]
     }
   };
 

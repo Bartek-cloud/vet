@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 'widget_tweaks',
 'material',
 'datetimewidget',
+    'crispy_forms',
     'tempus_dominus',
     # Wagtail
     "wagtail.contrib.forms",
@@ -79,6 +80,8 @@ MIDDLEWARE = [
     "wagtailcache.cache.UpdateCacheMiddleware",
     # Common functionality
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.CommonMiddleware",
     # Security
@@ -153,13 +156,21 @@ LANGUAGE_CODE = "pl"
 
 LANGUAGES = [("pl", _("Polish"))]
 
-TIME_ZONE = "Poland"
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 

@@ -59,7 +59,7 @@ class Visit(Orderable, Event):
   #  cost = models.DecimalField(decimal_places=2, max_digits=10,verbose_name = 'Koszt')
     vet = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True,
                             limit_choices_to={'groups__name': 'Vet'}, related_name="vet",verbose_name = 'Weterynarz')
-    animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Pet")#,verbose_name = 'Zwierzę')#,limit_choices_to={'Client': 'id__creator'},)
+    animal = ParentalKey(to=Pet, on_delete=models.CASCADE, related_name="Pet",verbose_name = 'Zwierzę')#limit_choices_to={'Client': 'id__creator'},)
     panels = [
         MultiFieldPanel([
         FieldPanel('start'),
