@@ -1,7 +1,27 @@
 /* Add your custom styles here */
 
+/*button{*/
+/*  --bs-btn-color: #fd6efd;*/
+/*--bs-btn-border-color: #fd6efd;*/
+/*--bs-btn-hover-color: #fff;*/
+/*--bs-btn-hover-bg: #fd6efd;*/
+/*--bs-btn-hover-border-color: #fd6efd;*/
+/*--bs-btn-focus-shadow-rgb: 13,110,253;*/
+/*--bs-btn-active-color: #fff;*/
+/*--bs-btn-active-bg: #fd6efd;*/
+/*--bs-btn-active-border-color: #fd6efd;*/
+/*--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);*/
+/*--bs-btn-disabled-color: #fd6efd;*/
+/*--bs-btn-disabled-bg: transparent;*/
+/*--bs-btn-disabled-border-color: #fd6efd;*/
+/*--bs-gradient: none;*/
+/*}*/
 /* Adds a bit of spacing to "Responsive Grid Row" blocks. */
 .crx-grid {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.container {
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -10,18 +30,18 @@
   padding-bottom: 0;
 }/* Główny kontener strony */
 /* Główny kontener strony */
-body {
-  font-family: Arial, sans-serif;
-  /* background-color: #6a936a;!* kolor tła *!*/
+/*body {*/
+/*  font-family: Arial, sans-serif;*/
+/*   background-color: #6a936a;!* kolor tła *!*/
 
-  /*color: #333; !* kolor tekstu *!*/
-}
+/*  color: #333; !* kolor tekstu *!*/
+/*}*/
 .navbar {
-   /*background-color: #77dd77;*/
+   background-color: #fff;
 }
 /* Nagłówek strony */
 header {
-  /*background-color: #fff; !* kolor tła nagłówka *!*/
+  background-color: #fff; /* kolor tła nagłówka */
   padding: 20px;
 }
 

@@ -14,14 +14,14 @@ body {
   font-family: Arial, sans-serif;
    background-color: #6a936a;/* kolor tła */
 
-  color: #333; /* kolor tekstu */
+  /*color: #333; !* kolor tekstu *!*/
 }
 .navbar {
    background-color: #77dd77;
 }
 /* Nagłówek strony */
 header {
-  background-color: #fff; /* kolor tła nagłówka */
+  /*background-color: #fff; !* kolor tła nagłówka *!*/
   padding: 20px;
 }
 

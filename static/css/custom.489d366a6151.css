@@ -32,7 +32,7 @@ button{
 /* Główny kontener strony */
 body {
   font-family: Arial, sans-serif;
-   background-color: #6a936a;/* kolor tła */
+   /*background-color: #6a936a;!* kolor tła *!*/
 
   color: #333; /* kolor tekstu */
 }
