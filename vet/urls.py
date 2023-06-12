@@ -10,6 +10,9 @@ from coderedcms import urls as crx_urls
 from schedule_wagtail import urls as schedule_urls
 from veter import urls as veter_urls
 from wagtail import urls as wagtail_urls
+
+from veter.views import EditPetView
+
 urlpatterns = [
     # Admin
     path("django-admin/", admin.site.urls),
@@ -26,6 +29,7 @@ urlpatterns = [
     path("", include(crx_urls)),
     path("", include(schedule_urls)),
     path("", include(veter_urls)),
+#    path('pet/edit/<int:pet_id>', EditPetView.as_view(), name='EditPetView'),
     # Alternatively, if you want pages to be served from a subpath
     # of your site, rather than the site root:
     #    path("pages/", include(crx_urls)),
@@ -41,3 +45,4 @@ if settings.DEBUG:
     # Serve static and media files from development server
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#

@@ -45,13 +45,17 @@ class vetRecepCreateEventView(CreateEventView):
         event.calendar = get_object_or_404(Calendar, slug=self.kwargs["calendar_slug"])
         event.save()
         return HttpResponseRedirect("/recepcjonista/")
+
+
+
+
 class CreatePetView(CreateView):
     #template_name = "schedule_wagtail/create_event.html"
     """
     Widok do dodawania nowego wydarzenia.
     """
     model = Pet#{% extends "coderedcms/pages/form_page.html" %}
-   # template_name = 'schedule_wagtail/event_create.html'
+    template_name = 'schedule_wagtail/event_create.html'
     form_class = PetForm
 
 
@@ -61,7 +65,7 @@ class EditPetView(UpdateView):
     Widok do dodawania nowego wydarzenia.
     """
     model = Pet  # {% extends "coderedcms/pages/form_page.html" %}
-    # template_name = 'schedule_wagtail/event_create.html'
+    template_name = 'schedule_wagtail/event_create.html'
     form_class = PetForm
 
 

@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from schedule.models import Calendar
 from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail import blocks
 
@@ -25,9 +26,16 @@ class PetCardGrid(blocks.StructBlock):
 #         template = "veter/blocks/pet_card_grid.html"
 #         label = 'Pet card grid'
 class VisitCardGrid(blocks.StructBlock):
+    calendar = blocks.StreamBlock(
+        [
+            ('calendar', SnippetChooserBlock('schedule_wagtail.CalendarSnippet')),
+        ],
+        required=True,
+    )
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
-        context["Visits"] = Visit.objects.all()
+        context["calendar_slug"] = value['calendar'][0].value.slug
+        context["Visits"] = Visit.objects.filter(calendar=value['calendar'][0].value)
         return context
 
     class Meta:
@@ -37,7 +45,7 @@ class VisitCardGrid(blocks.StructBlock):
 class ClientCardGrid(blocks.StructBlock):
     def get_context(self, value, parent_context=None):
         context = super().get_context(value, parent_context)
-        context["Clients"] = User.objects.filter(groups__name="Clients")
+        context["Clients"] = User.objects.filter(groups__name="Klienci")
         print( context["Clients"])
         return context
 

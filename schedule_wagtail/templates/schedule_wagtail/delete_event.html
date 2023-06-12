@@ -1,6 +1,7 @@
 {% extends "schedule_wagtail/base.html" %}
 {% load i18n %}
-
+{% load i18n static %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
 {% block body %}
 <h1>{% trans "Delete" %}</h1>
 {% trans "Are you sure that you really want to delete it?" %}

@@ -33,7 +33,8 @@ class EventView(EventView):
     template_name = "schedule_wagtail/event.html"
 
 class EditEventView(EditEventView):
-    template_name = "schedule_wagtail/create_event.html"
+    form_class = RecEventFormWag
+    template_name = "schedule_wagtail/event_create.html"
 
 class CreateEventView(CreateEventView):
     #template_name = "schedule_wagtail/create_event.html"

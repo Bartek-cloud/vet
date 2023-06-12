@@ -1,7 +1,8 @@
 {% extends "schedule_wagtail/base.html" %}
 {% extends "schedule_wagtail/base.html" %}
 {% load i18n scheduletags %}
-
+{% load i18n static %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
 {% block body %}
 <div class="navigation">
   <a class="btn btn-primary gradient" href="{% url "day_calendar" event.calendar.slug %}{% querystring_for_date event.start 3 %}">

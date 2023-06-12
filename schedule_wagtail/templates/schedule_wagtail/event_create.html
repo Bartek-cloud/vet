@@ -1,20 +1,20 @@
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
+{% extends "coderedcms/pages/web_page.html" %}
 {% load i18n static %}
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 
-{# Include Bootstrap 4 and jQuery #}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-<link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
-
-{# Django Tempus Do#}
+<!DOCTYPE html>
+  {% block content %}
+{% load i18n static %}
 
 
 <script src="{% static 'admin/js/core.js' %}"></script>
 <script src="{% url 'admin:jsi18n' %}"></script>  {# see note below #}
 {{ form.media }}  {# this adds 'calendar.js' and 'DateTimeShortcuts.js' #}
+{% load i18n static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
 
 <form class="container" action="" method="POST">
  <h1>Wizyta</h1>
@@ -31,3 +31,4 @@
   <button type="submit" class="btn btn-primary">Zapisz</button>
 </form>
 
+{% endblock %}

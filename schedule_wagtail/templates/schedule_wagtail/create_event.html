@@ -1,6 +1,8 @@
 {% extends 'schedule_wagtail/base.html' %}
 {% load i18n %}
 {% block body %}
+{% load i18n static %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
 <b>{% trans "Create or change event. All fields are required." %}</b>
 <br><br>
 <form action="" method="post">

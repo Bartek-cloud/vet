@@ -1,6 +1,7 @@
 {% extends "schedule_wagtail/base.html" %}
 {% load i18n %}
-
+{% load i18n static %}
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
 {% block body %}
 <b>{% trans "Create or change occurrence. All fields are required." %}</b>
 <br><br>
