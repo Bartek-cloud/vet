@@ -6,7 +6,7 @@
     {% for pet in Pets %}
       <div class="col-lg-2 col-md-6 col-sm-12 m-1">
         <div class="card-body">
-          <a href="{% url 'wagtailadmin_home' %}veter/pet/edit/{{ pet.id }}/" class="btn btn-primary">
+          <a href="{% url 'EditPetView' pet.id %}" class="btn btn-primary">
             <h5 class="card-title">Imię: {{ pet.name }}</h5>
             <p class="card-text">Gatunek: {{ pet.species }}</p>
             <p class="card-text">Wiek: {{ pet.age }}</p>

@@ -51,7 +51,10 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
+a {
+  color: var(--bs-link-color);
+  text-decoration: underline;
+}
 nav ul li {
   display: inline-block;
   margin-right: 20px;

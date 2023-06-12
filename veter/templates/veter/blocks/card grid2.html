@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card-deck">
+        {% for card in cards %}
+            <div class="card">
+                <img class="card-img-top" src="{{ card.image.url }}" alt="{{ card.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ card.title }}</h5>
+                    <p class="card-text">{{ card.description }}</p>
+                    <a href="{{ card.link }}" class="btn btn-primary">{{ card.cta }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
