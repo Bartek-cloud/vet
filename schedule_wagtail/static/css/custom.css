@@ -22,11 +22,11 @@ body {
   color: #333; /* kolor tekstu */
 }
 .navbar {
-   background-color: #fff;
+   /*background-color: #fff;*/
 }
 /* Nagłówek strony */
 header {
-  background-color: #fff; /* kolor tła nagłówka */
+  /*background-color: #fff; !* kolor tła nagłówka *!*/
   padding: 20px;
 }
 
@@ -48,7 +48,7 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #333; /* kolor linków */
+  /*color: #333; !* kolor linków *!*/
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -67,7 +67,7 @@ nav ul li a:hover {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff; /* kolor tekstu na tle */
+  /*color: #fff; !* kolor tekstu na tle *!*/
 }
 
 .hero h1 {
@@ -108,7 +108,7 @@ nav ul li a:hover {
 .services li:before {
   content: '•';
   margin-right: 10px;
-  color: #52c41a; /* kolor ikony */
+  /*color: #52c41a; !* kolor ikony *!*/
 }
 
 /* Sekcja o nas */
@@ -154,8 +154,8 @@ nav ul li a:hover {
 }
 
 .pricing th {
-  background-color: #52c41a; /* kolor nagłówka tabeli */
-  color: #fff;
+  /*background-color: #52c41a; !* kolor nagłówka tabeli *!*/
+  /*color: #fff;*/
 }
 
 /* Sekcja kontakt */

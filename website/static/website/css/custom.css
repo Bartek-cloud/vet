@@ -36,7 +36,7 @@ body {
 }
 /* Nagłówek strony */
 header {
-  background-color: #fff; /* kolor tła nagłówka */
+  /*background-color: #fff; !* kolor tła nagłówka *!*/
   padding: 20px;
 }
 
