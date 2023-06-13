@@ -54,13 +54,6 @@
         {% endfor %}
       <link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">
         <button class="btn btn-outline-primary ms-2" type="submit">{% trans "Search" %}</button>
-                    {% if request.user.is_authenticated %}
-                  Witam {{ request.user.username }},
-                  <a href="{% url 'account_logout' %}">Wylogować?</a>
-              {% else %}
-                  gość
-                  <a href="{% url 'account_login' %}">Zalogować?</a>
-              {% endif %}
       </form>
       {% endif %}
         <link rel="stylesheet" type="text/css" href="{% static 'website/css/custom.css' %}">

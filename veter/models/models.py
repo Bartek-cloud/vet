@@ -134,7 +134,7 @@ class DataBaseAdmin(ModelAdminGroup):
         TreatmentAdmin,
         ResultAdmin,
         VisitAdmin,
-        UserAdmin,
+        #UserAdmin,
 
     )
 

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
@@ -9,7 +10,7 @@ from schedule.models import Calendar
 
 #from schedule_wagtail.views import CreateEventView
 from schedule_wagtail.views import CreateEventView
-from veter.forms import EventFormWag, RecEventFormWag, PetForm
+from veter.forms import EventFormWag, RecEventFormWag, PetForm, ClientForm
 from veter.models import Visit, Pet
 
 
@@ -70,22 +71,16 @@ class EditPetView(UpdateView):
 
 
 class EditEventView(UpdateView):
-    #template_name = "schedule_wagtail/create_event.html"
-    """
-    Widok do dodawania nowego wydarzenia.
-    """
-    model = Visit#{% extends "coderedcms/pages/form_page.html" %}
-    template_name = 'schedule_wagtail/event_create.html'
-    form_class = EventFormWag
+
+    model = User
+    template_name = 'veter/forms/sawaccount.html'
+    form_class = ClientForm
 
 class EditClientsView(UpdateView):
-    #template_name = "schedule_wagtail/create_event.html"
-    """
-    Widok do dodawania nowego wydarzenia.
-    """
-    model = Visit#{% extends "coderedcms/pages/form_page.html" %}
-    template_name = 'schedule_wagtail/event_create.html'
-    form_class = EventFormWag
+
+    model = User
+    template_name = 'veter/forms/sawaccount.html'
+    form_class = ClientForm
 
     def form_valid(self, form):
         event = form.save(commit=False)

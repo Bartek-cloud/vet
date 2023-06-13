@@ -59,7 +59,7 @@ class RecepCreateEventView(CreateEventView):
     Widok do dodawania nowego wydarzenia.
     """
     model = EventSnippet
-    template_name = 'schedule_wagtail/event_create.html'
+    template_name = 'veter/forms/sawaccount.html'
     form_class = RecEventFormWag
 
     def form_valid(self, form):
