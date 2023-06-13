@@ -41,7 +41,7 @@ class Pet(ClusterableModel):
         verbose_name_plural = 'Zwierzęta'
 
 class Result(Orderable):
-    date = models.DateTimeField(null=True, blank=True,verbose_name = 'dane')
+    date = models.DecimalField(null=True, blank=True,verbose_name = 'dane',max_digits=10,decimal_places=2)
     text = models.CharField(max_length=255,verbose_name = 'opis')
     pet = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Result")
     panels = [
@@ -77,17 +77,17 @@ class Visit(Orderable, Event):
         # FieldPanel('rule'),
         # FieldPanel('end_recurring_period'),
         #  ], heading='zasady powórzenia'),
-        MultiFieldPanel([
-        #FieldPanel('calendar',heading="kalendarz"),
-        FieldPanel('color_event',heading="kolor"),
-             ], heading = 'ustawienia wyświetlania w kalendarzu'),
+        # MultiFieldPanel([
+        # #FieldPanel('calendar',heading="kalendarz"),
+        # FieldPanel('color_event',heading="kolor"),
+        #      ], heading = 'ustawienia wyświetlania w kalendarzu'),
     ]
     class Meta:
         verbose_name = 'Wizyta'
         verbose_name_plural = 'Wizyty'
 
 class Treatment(models.Model):
-    date = models.DateTimeField(null=True, blank=True,verbose_name = 'dane')
+    date = models.DateTimeField(null=True, blank=True,verbose_name = 'data')
     text = models.CharField(max_length=255,verbose_name = 'opis')
     pet = ParentalKey(to=Pet, on_delete=models.SET_NULL, null=True, blank=True, related_name="Treatment")
     panels = [

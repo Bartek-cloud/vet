@@ -76,10 +76,10 @@ class RecEventFormWag(forms.ModelForm):
         fields = ['creator','title', 'start', 'end', 'description']
         widgets = {
             #'title': TextField(),
-            'start': DateTimePicker(
+            #'start': DateTimePicker( ),
              # formatowanie daty i czasu wg. własnego uznania
-        ),
-            'end': DateTimePicker(),
+
+           # 'end': DateTimePicker(),
             #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
             #'description': TextField()
         }
@@ -95,6 +95,14 @@ class RecEventFormWag(forms.ModelForm):
     fieldsets = (
         Fieldset('Dodaj nowe wydarzenie','creator', 'title', 'start', 'end', 'description'),
     )
+    def __init__(self, *args, **kwargs):
+        super(RecEventFormWag, self).__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({
+            'placeholder': 'Tytuł wydarzenia'
+        })
+        self.fields['description'].widget.attrs.update({
+            'placeholder': 'Opis wydarzenia'
+        })
 # class EventFormVisit(EventForm):
 #     def __init__(self, *args, **kwargs):
 #         super().__init__(*args, **kwargs)
