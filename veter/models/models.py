@@ -102,27 +102,35 @@ class Treatment(models.Model):
         verbose_name = 'Kuracja'
         verbose_name_plural = 'Kuracje'
 
-class PetAdmin(ModelAdmin):
-    model = Pet
-
-
-class TreatmentAdmin(ModelAdmin):
-    model = Treatment
-
-
-class ResultAdmin(ModelAdmin):
-    model = Result
-
-
-class VisitAdmin(ModelAdmin):
-    model = Visit
-
 
 class UserAdmin(ModelAdmin):
     model = User
     list_display = ('username', 'first_name', 'last_name',)
     list_filter = ("groups",)
     search_fields = ('first_name', 'last_name')
+
+
+
+
+
+class TreatmentAdmin(ModelAdmin):
+    model = Treatment
+    list_display = ("date", "pet","text")
+
+
+class ResultAdmin(ModelAdmin):
+    model = Result
+    list_display = ("date", "pet", "text")
+
+
+class VisitAdmin(ModelAdmin):
+    model = Visit
+    list_display = ("start", "end", 'title', 'vet', 'animal')
+
+
+class PetAdmin(ModelAdmin):
+    model = Pet
+    list_display = ("name", "Client", 'species', 'age', 'isfemale')
 
 
 class DataBaseAdmin(ModelAdminGroup):
@@ -134,21 +142,7 @@ class DataBaseAdmin(ModelAdminGroup):
         TreatmentAdmin,
         ResultAdmin,
         VisitAdmin,
-        #UserAdmin,
-
     )
 
 
 modeladmin_register(DataBaseAdmin)
-
-# def clients(self):
-#   Clients.objects.filter(self)
-#  @property
-#   def results(self):
-#       return Result.objects.filter(Pet=self)
-#
-#   def Visits(self):
-#       return Visit.objects.filter(Pet=self)
-#
-#   def Treatments(self):
-#       return Treatment.objects.filter(Pet=self)

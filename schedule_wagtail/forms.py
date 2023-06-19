@@ -27,26 +27,26 @@ class EventFormWag(forms.ModelForm):
     class Meta:
         model = EventSnippet
        # fields = ['title', 'start', 'end', 'description']
-        fields = ['title', 'description']
-        # widgets = {
-        #     #'title': TextField(),
-        #     'start': DateTimePicker(
-        #      # formatowanie daty i czasu wg. własnego uznania
-        # ),
-        #     'end': DateTimePicker(),
-        #     #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
-        #     #'description': TextField()
-        # }
+        fields = ['title', 'description', 'start', 'end']
+        widgets = {
+            #'title': TextField(),
+            'start': DateTimePicker(
+             # formatowanie daty i czasu wg. własnego uznania
+        ),
+            'end': DateTimePicker(),
+            #'end': DateTimePickerInput(date_format='%Y-%m-%d %H:%M'),
+            #'description': TextField()
+        }
 
     layout = Layout(
+        Row('start', 'end'),
         Row('title'),
-       # Row('start', 'end'),
         Row('description'),
         #SubmitButton('Zapisz')
     )
 
     fieldsets = (
-        Fieldset('Dodaj nowe wydarzenie', 'title', 'description'),
+        Fieldset('Dodaj nowe wydarzenie', 'title', 'description','start', 'end'),
         #Fieldset('Dodaj nowe wydarzenie', 'title', 'start', 'end', 'description'),
     )
 

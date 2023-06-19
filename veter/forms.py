@@ -27,14 +27,15 @@ class EventFormWag(forms.ModelForm):
     """
     class Meta:
         model = Visit
-        fields = ['title', 'description','animal']
+        fields = ['title', 'description','animal', 'start', 'end']
     layout = Layout(
+        Row('animal'),
         Row('title'),
-     #   Row('start', 'end'),
         Row('description'),
+        Row('start', 'end'),
      #   Row('cost'),
      #   Row('vet'),
-        Row('animal'),
+
         #SubmitButton('Zapisz')
     )
 
