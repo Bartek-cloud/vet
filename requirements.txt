@@ -1,2 +1,12 @@
 coderedcms==2.0.*
 wagtail==4.2.*
+django-scheduler
+django-material
+django-allauth
+psycopg2 
+django-bower
+django-widget-tweaks
+django-datetime-widget
+django-crispy-forms
+django-tempus-dominus
+django-material

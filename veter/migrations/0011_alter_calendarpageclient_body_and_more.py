@@ -16,7 +16,6 @@ import wagtail.snippets.blocks
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("auth", "0013_alter_user_options"),
         ("veter", "0010_alter_treatment_date_alter_treatment_text"),
     ]
 

@@ -192,7 +192,9 @@ MEDIA_URL = "/media/"
 
 
 # Login
-
+import django
+from django.utils.encoding import smart_str
+django.utils.encoding.smart_text = smart_str
 
 
 
